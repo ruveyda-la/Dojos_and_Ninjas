@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dojos and Ninjas</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+</head>
+<body>
+    <main style="display:flex;width:600px;justify-content: space-around; margin:0 auto;margin-top: 150px;">
+      <div class="left-column" style="width:250px;padding:10px; border:solid black 2px; border-radius:5px;">
+        <h3>New Dojo</h3>
+        <form action="/dojos/new" method="post">
+          <div class="form-group">
+              <input type="hidden" name="id"class="form-control" >
+          </div>
+          <div class="form-group">
+              <label for="name">Name:</label>
+              <input type="text" name="name"class="form-control">
+          </div>
+          <button type="submit" class="btn btn-primary" style="margin-top:20px;">Add Dojo</button>
+        </form>
+      </div>
+      <div class="right-column" >
+        <div style="width: 250px;padding:10px; border:solid black 2px; border-radius:5px; margin-bottom: 20px;">
+          <h3>All Dojos</h3>
+          <div>
+            {% for dojo in dojos %}
+            <a href="/dojos/{{dojo.id}}" style="color:black;">{{dojo.name}}</a><br>
+            {% endfor %}
+          </div>
+        </div>
+        <a href="/ninjas">Add Ninja</a>     
+      </div>     
+    </main>
+    
+</body>
+</html>
