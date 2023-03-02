@@ -1,17 +1,8 @@
 from flask_app.models.ninja import Ninja
 from flask_app.models.dojo import Dojo
-from flask_app import app,render_template, request, redirect
+from flask_app import app
+from flask import render_template, request, redirect
 
-# @app.route("/")
-# def read_all():
-#     ninjas = Ninja.get_all()
-#     return render_template("read_all.html", ninjas=ninjas)
-
-# @app.route("/ninjas/<int:id>")
-# def read_one(id):
-#     data={'id':id}
-#     ninja= Ninja.get_one(data)
-#     return render_template('read_one.html',ninja=ninja)
 
 @app.route("/ninjas")
 def show_form():
